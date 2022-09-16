@@ -8,23 +8,7 @@ class Users {
         this.created = '';
         this.updated = ''
     }
-      
-      passwordHash () {
-        const bcrypt = require('bcrypt');
-        const saltRounds = 10 /*this.firstName+this.lastName*/;
-        this.passwordHash = bcrypt.hash(this._password, saltRounds, (err, hash) => {return hash})
-      }
-      
-    //   #curDate = () => {
-    //     var currentdate = new Date();
-    //     return currentdate.getDay() + "/" + currentdate.getMonth() + "/" + currentdate.getFullYear() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-    //   };
-
-    //   created () {this.created = this.#curDate()}
-      
-    //   updated () {this.updated = this.#curDate()}
-     
-    };
+};
 
 const users = [];
 
