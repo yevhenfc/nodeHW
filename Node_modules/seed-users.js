@@ -1,5 +1,5 @@
 class Users {
-    constructor(firstName, lastName, email, login, password) {
+    constructor(firstName, lastName, email, login) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -10,24 +10,24 @@ class Users {
     }
 };
 
+const bcrypt = require('bcrypt');
 const users = [];
 
 curDate = () => {
-    var currentdate = new Date();
-    return currentdate.getDay() + "/" + currentdate.getMonth() + "/" + currentdate.getFullYear() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    let curDate = new Date();
+    return curDate.getDay() + "/" + curDate.getMonth() + "/" + curDate.getFullYear() + " " + curDate.getHours() + ":" + curDate.getMinutes() + ":" + curDate.getSeconds();
 };
 
 passwordHash = (password) => {
-    const bcrypt = require('bcrypt');
     const saltRounds = 10;
     return bcrypt.hashSync(password, saltRounds)
 };  
 
-for (var i = 1; i < 11; i++) {
+for (let i = 1; i < 11; i++) {
     users[i-1] = new Users('firstName'+`${i}`, 'lastName'+`${i}`,  'email'+`${i}`+'@mail.com', 'login'+`${i}`);
     users[i-1].created = curDate();
     users[i-1].updated = curDate();
-    users[i-1].passwordHash = passwordHash('password1'+`${i}`);
+    users[i-1].passwordHash = passwordHash('password'+`${i}`);
 }
 
 module.exports = users;
