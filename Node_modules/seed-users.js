@@ -26,7 +26,7 @@ const bcrypt = require('bcrypt');
 const users = [];
 
 for (let i = 1; i < 11; i++) {
-    let user = new Users('firstName'+`${i}`, 'lastName'+`${i}`,  'email'+`${i}`+'@mail.com', 'login'+`${i}`, 'password'+`${i}`);
+    let user = new Users('firstName' + i, 'lastName' + i,  'email' + i + '@mail.com', 'login' + i, 'password' + i);
     users[i-1] = user.newUser();
 }
 
