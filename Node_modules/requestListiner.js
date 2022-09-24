@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-module.exports = requestListener = (req, res) => {
+module.exports = async function requestListener(req, res) {
         
-    const indexContent = fs.readFileSync('./index.html', "utf8");
+    const indexContent = await fs.readFileSync('./index.html', "utf8");
 
     res.end(indexContent)
 }
